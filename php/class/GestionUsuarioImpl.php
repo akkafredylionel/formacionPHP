@@ -1,23 +1,79 @@
 <?php 
 
-  
+    require_once("../interfaces/GestionUsuario.php");
+    require_once("../class/Usuario.php");
+
     class GestionUsuarioImpl implements GestionUsuario{
 
-        private ArrayObject $usuarios;
+        private  $usuarios;
 
 
         public function __construct(){
-            $this->usuarios = array(
-                array("id" => 1, "nombre" => "Juan Pérez",    "email" => "juan.perez@example.com",    "password" => "juan.perez",     "direccion"  => "Calle Falsa 123","cp"          => "28001","telefono" => "612345678","dni" => "12345678A"),
-                array("id" => 2, "nombre" => "María López",   "email" => "maria.lopez@example.com",   "password" => "maria.lopez",    "direccion"  => "Avenida Siempre Viva 456","cp" => "28002","telefono" => "623456789","dni" => "23456789B"),
-                array("id" => 3, "nombre" => "Carlos García", "email" => "carlos.garcia@example.com", "password" => "carlos.garcia",  "direccion"  => "Calle Ocho 789","cp"           => "28003","telefono" => "634567890","dni" => "34567890C"),
-                array("id" => 4, "nombre" => "Ana Martínez",  "email" => "ana.martinez@example.com",  "password" => "carlos.garcia",  "direccion"  => "Paseo de la Reforma 321","cp"  => "28004","telefono" => "645678901","dni" => "45678901D"),
-                array("id" => 5, "nombre" => "Luis Rodríguez","email" => "luis.rodriguez@example.com","password" => "luis.rodriguez",  "direccion" => "Calle del Río 159","cp"        => "28005","telefono" => "656789012","dni" => "56789012E")
-            );
+
+            $this->usuarios = array();
+
+            array_push($this->usuarios ,new Usuario(1,"Juan Pérez", "juan.perez@example.com","juan.perez","Calle Falsa 123","28001","612345678","12345678A"));
+
+            array_push($this->usuarios,new Usuario(2, "María López", "maria.lopez@example.com", "maria.lopez","Avenida Siempre Viva 456","28002","623456789","23456789B"));
+
+            array_push($this->usuarios,new Usuario(3,  "Carlos García", "carlos.garcia@example.com", "carlos.garcia","Calle Ocho 789","28003","634567890","34567890C"));
+
+            array_push($this->usuarios,new Usuario(4, "Ana Martínez",   "ana.martinez@example.com",   "carlos.garcia",  "Paseo de la Reforma 321","28004","645678901","45678901D"));
+
+            array_push($this->usuarios,new Usuario(5, "Luis Rodríguez","luis.rodriguez@example.com","luis.rodriguez","Calle del Río 159","28005","656789012","56789012E"));
         }
-        public function agregar(Usuario $usuario){}
-        public function modificar(int $id , Usuario $usuario){}
-        public function eliminar(int $id){}
+
+        public function agregar(Usuario $usuario){
+                if(!existeUsuario($usuario)){
+                    throw new Exception("El usuario ya existe");
+                }
+                array_push($this->usuarios,$usuario);
+        }
+        public function modificar(int $id , Usuario $usuario):bool{
+            $index = 0;
+            foreach($this->usuarios as $user){
+                if($user->getId() == $id){
+                    $this->usuarios[$index] = $usuario;
+                    return true;
+                }
+                $index++;
+            }
+            return false;
+        }
+
+        public function eliminar(int $id):bool{
+
+            foreach($this->usuarios as $usuario){
+                if($usuario->getId() == $id){
+                    $usuario;
+                }
+            }
+
+        }
+
+        public function mostrar(int $id):Usuario{
+            $index = 0;
+            foreach($this->usuarios as $usuario){
+                if($usuario->getId() == $id){
+                    return $this->usuarios[$index];
+                }
+                $index++;
+            }
+            return null;
+        }
+
+        public function mostrarTodo():array{
+            return $this->usuarios;
+        }
+
+        private function existeUsuario(Usuario $usuario):bool{
+            foreach($this->usuarios as $user){
+                if($user->getEmail() == $usuario->getEmail() || $user->getDni() == $usuario->getDni()|| $user->getTelefono() == $usuario->getTelefono()){
+                    return true;
+                }
+            }
+            return false;
+        }
 
     }
 
