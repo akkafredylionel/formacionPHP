@@ -24,42 +24,50 @@
         }
 
         public function agregar(Usuario $usuario){
-                if(!existeUsuario($usuario)){
+                if($this->existeUsuario($usuario)){
                     throw new Exception("El usuario ya existe");
                 }
+                $usuario->setId($this->generarClave());
                 array_push($this->usuarios,$usuario);
+                
+                
         }
         public function modificar(int $id , Usuario $usuario):bool{
             $index = 0;
+            $usuarioModificado = false;
             foreach($this->usuarios as $user){
                 if($user->getId() == $id){
+                    $usuario->setId($id);
                     $this->usuarios[$index] = $usuario;
-                    return true;
+                    $usuarioModificado = true;
                 }
                 $index++;
             }
-            return false;
+            return $usuarioModificado;
         }
 
         public function eliminar(int $id):bool{
-
-            foreach($this->usuarios as $usuario){
-                if($usuario->getId() == $id){
-                    $usuario;
-                }
-            }
-
-        }
-
-        public function mostrar(int $id):Usuario{
             $index = 0;
+            $usuarioEliminado = false;
             foreach($this->usuarios as $usuario){
                 if($usuario->getId() == $id){
-                    return $this->usuarios[$index];
+                   unset($this->usuarios[$index]);
+                   $usuarioEliminado = true;
                 }
                 $index++;
             }
-            return null;
+            return $usuarioEliminado;
+        }
+
+        public function mostrar(int $id){
+
+            $user = null;
+            foreach($this->usuarios as $usuario){
+                if($usuario->getId() == $id){
+                    $user = $usuario;
+                }
+            }
+            return $user;
         }
 
         public function mostrarTodo():array{
@@ -73,6 +81,10 @@
                 }
             }
             return false;
+        }
+
+        private function generarClave():int{
+            return count($this->usuarios)+1;
         }
 
     }

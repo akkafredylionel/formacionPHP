@@ -20,6 +20,7 @@
             $this->telefono  = $telefono;
             $this->dni       = $dni;
         }
+        
 
         public function getId(){ return $this->id;}
         public function getNombre(){return $this->nombre;}
