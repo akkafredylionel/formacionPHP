@@ -1,7 +1,8 @@
 <?php 
 
-    require_once("../interfaces/GestionUsuario.php");
-    require_once("../class/Usuario.php");
+    require_once(realpath(dirname(__FILE__)) ."\..\interfaces\GestionUsuario.php");
+    require_once("Usuario.php");
+
 
     class GestionUsuarioImpl implements GestionUsuario{
 
@@ -59,7 +60,7 @@
             return $usuarioEliminado;
         }
 
-        public function mostrar(int $id){
+        public function obtener(int $id){
 
             $user = null;
             foreach($this->usuarios as $usuario){
@@ -70,7 +71,7 @@
             return $user;
         }
 
-        public function mostrarTodo():array{
+        public function obtenerTodo():array{
             return $this->usuarios;
         }
 

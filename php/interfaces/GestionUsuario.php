@@ -3,7 +3,7 @@
         public function agregar(Usuario $usuario);
         public function modificar(int $id , Usuario $usuario):bool;
         public function eliminar(int $id):bool;
-        public function mostrar(int $id);
-        public function mostrarTodo():array;
+        public function obtener(int $id);
+        public function obtenerTodo():array;
     }
 ?>
