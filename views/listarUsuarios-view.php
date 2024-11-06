@@ -25,23 +25,31 @@
     <tbody>
 
      <?php
+        require_once("..\php\class\Usuario.php");
         $users = unserialize(stripslashes($_GET["users"]));
         foreach($users as $user){
+
+            $linkEliminar = "..\php\class\control\Eliminar-control.php?id=".$user->getId();
+            $linkEditar = "..\php\class\control\Editar-control.php?id=".$user->getId();
+            $linkAgregar = "agregarUsuario-view.php";
+
             echo "<tr>
-                    <td>"   .$user['id'].        "</td>
-                    <td>"   .$user['nombre'].    "</td>
-                    <td>"   .$user['email'].      "</td>
-                    <td>"   .$user['password'].  "</td>
-                    <td>"   .$user['direccion']. "</td>
-                    <td>"   .$user['cp'].        "</td>
-                    <td>"   .$user['telefono'].  "</td>
-                    <td>"   .$user['dni'].       "</td>
-                    <td>
-                            <button>Editar</button>
-                            <button>Eliminar</button>
-                    </td>
+                    <td>"   .$user->getId().        "</td>
+                    <td>"   .$user->getNombre().    "</td>
+                    <td>"   .$user->getEmail().     "</td>
+                    <td>"   .$user->getPassword().  "</td>
+                    <td>"   .$user->getDireccion(). "</td>
+                    <td>"   .$user->getCp().        "</td>
+                    <td>"   .$user->getTelefono().  "</td>
+                    <td>"   .$user->getDni().       "</td>
+                    <td>"
+                            ."<a href = ".$linkEditar."> <button> Editar   </button> </a>"
+                            ."<a href = ".$linkEliminar."> <button> Eliminar </button> </a>".        
+                    "</td>
                  </tr>";
+               
         }
+            echo "<a href = ".$linkAgregar."> <button> AGREGAR </button> </a>";    
       ?>
         
     </tbody>

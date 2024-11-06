@@ -14,8 +14,9 @@
             <input type="text" name="email" placeholder="Usuario" required>
             <input type="text" name="password" placeholder="Contraseña" required>
             <input type="submit" value="ENTRAR">
-            <?php if(isset($_GET['error'])){ echo "<p>".$_GET['error']."</p>";}?>
+            <?php if(isset($_GET['message'])){ echo "<p>".$_GET['message']."</p>";}?>
         </form>
+        
     </body>
 
 </html>

@@ -9,19 +9,21 @@
 
     <body>
 
-        <form action="mostrarCorreo.php" method="post">
-            <select name="destinatario">
-                <?php
-                    $users = unserialize(stripslashes($_GET["users"]));
-                    foreach($users as $user)
-                        echo "<option value=".$user['mail'].">".$user['mail']."</option>";
-                ?>        
-            </select>
-            
-            <input type="text" name="remitente" id ="remitente" value=<?php echo $_GET["user"]?> readonly>
-            <input type="text" name="asunto" placeholder="Asunto" required>
-            <textarea name="mensaje" cols="30" rows="10" placeholder="Mensaje..." required></textarea>
-            <input type="submit" value="ENVIAR">
+        <form action="..\php\class\control\Agregar-control.php" method="post">
+             <tr>
+                 <td>   <input type="number"   name="id"        placeholder="id">  </td>
+                 <td>   <input type="text"     name="nombre"    placeholder="nombre">  </td>
+                 <td>   <input type="text"     name="email"     placeholder="email">  </td>
+                 <td>   <input type="text"     name="password"  placeholder="password">  </td>
+                 <td>   <input type="text"     name="direccion" placeholder="direccion">  </td>
+                 <td>   <input type="text"     name="cp"        placeholder="cp" >  </td>
+                 <td>   <input type="text"     name="telefono"  placeholder="telefono">  </td>
+                 <td>   <input type="text"     name="dni"       placeholder="dni">  </td>
+                        <input type="hidden"   name="accion"    value="agregar">   
+                 <td>
+                       <input type="submit" value="APLICAR">    
+                 </td>
+             </tr>
         </form>
 
     </body>

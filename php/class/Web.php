@@ -10,7 +10,7 @@
 
                 foreach($array as $key => $value){
 
-                    if(is_array($value)){
+                    if(is_array($value) || is_object($value)){
                         $value = urlencode(serialize($value));
                     }
                     $url .= "$key=$value&";
