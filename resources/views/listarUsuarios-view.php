@@ -29,8 +29,8 @@
         $users = unserialize(stripslashes($_GET["users"]));
         foreach($users as $user){
 
-            $linkEliminar = "..\php\class\control\Eliminar-control.php?id=".$user->getId();
-            $linkEditar = "..\php\class\control\Editar-control.php?id=".$user->getId();
+            $linkEliminar = "...............?id=".$user->getId()."&accion=eliminar";
+            $linkEditar = "-----------------?id=".$user->getId()."&accion=editar";
             $linkAgregar = "agregarUsuario-view.php";
 
             echo "<tr>

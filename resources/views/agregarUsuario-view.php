@@ -9,7 +9,7 @@
 
     <body>
 
-        <form action="..\php\class\control\Agregar-control.php" method="post">
+        <form action="" method="post">
              <tr>
                  <td>   <input type="number"   name="id"        placeholder="id">  </td>
                  <td>   <input type="text"     name="nombre"    placeholder="nombre">  </td>

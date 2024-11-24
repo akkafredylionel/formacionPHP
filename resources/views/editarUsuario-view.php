@@ -30,7 +30,7 @@
                      require_once("..\php\class\Usuario.php");
                      $user = unserialize(stripslashes($_GET["user"]));
 
-                     echo '<form action="..\php\class\control\Agregar-control.php" method="post">'.
+                     echo '<form action="" method="post">'.
                                  "<tr>".
                                  '<td>   <input type="number"   name="id"          value="' .$user->getId().       '" placeholder="'.$user->getId().       '">  </td>'.
                                  '<td>   <input type="text"     name="nombre"      value="' .$user->getNombre().   '" placeholder="'.$user->getNombre().   '">  </td>'.
@@ -40,7 +40,7 @@
                                  '<td>   <input type="text"     name="cp"          value="' .$user->getCp().       '" placeholder="'.$user->getCp().       '">  </td>'.
                                  '<td>   <input type="text"     name="telefono"    value="' .$user->getTelefono(). '" placeholder="'.$user->getTelefono(). '">  </td>'.
                                  '<td>   <input type="text"     name="dni"         value="' .$user->getDni().      '" placeholder="'.$user->getDni().      '">  </td>'.
-                                        '<input type="hidden"   name="accion"      value="modificar">'.
+                                        '<input type="hidden"   name="accion"      value="editar">'.
                                  "<td>"
                                          .'<input type="submit" value="APLICAR">'.    
                                  "</td>

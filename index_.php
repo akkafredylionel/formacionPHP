@@ -10,7 +10,7 @@
     </head>
 
     <body>  
-        <form action="php/class/control/index-control.php" method="get">
+        <form action="" method="get">
             <input type="text" name="email" placeholder="Usuario" required>
             <input type="text" name="password" placeholder="Contraseña" required>
             <input type="submit" value="ENTRAR">
