@@ -1,12 +1,5 @@
 <?php
-
-
-        //define('DB_HOST', 'localhost');
-        //define('DB_NAME', 'pruebas');
-        //define('DB_USER', 'root');
-        //define('DB_PASS', '');
-        //define('DB_CHARSET_UFT8', 'SET CHARACTER SET utf8');
-        require_once("..\\formacionPHP\config\BDD-config.php");
+        require_once "..\\formacionPHP\config\BDD-config.php";
 
         class Conexion{
 
