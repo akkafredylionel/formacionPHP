@@ -2,10 +2,14 @@
   
     class Web{
 
-        public static function redirect($link , ...$arrays):String{
-            
-            $url = "Location:".$link."?";
+        public static function redireccionar($link , ...$arrays){
+            $url = self::construirURL($link , ...$arrays);
+            header($url); 
+            exit();
+        }
 
+        public static function construirURL($link , ...$arrays):String{
+            $url = "Location:".$link."?";
             foreach($arrays as  $array){
 
                 foreach($array as $key => $value){
@@ -17,11 +21,9 @@
                 }
                
             }
-
-            $Location =  substr($url, 0, -1);;
-            header($Location); 
-            exit();
+            return substr($url, 0, -1);
         }
+        
     }
 
 

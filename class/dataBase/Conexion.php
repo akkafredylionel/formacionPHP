@@ -1,9 +1,13 @@
 <?php
-        require_once "..\\formacionPHP\config\BDD-config.php";
+          define('DB_HOST', 'localhost');
+          define('DB_NAME', 'pruebas');
+          define('DB_USER', 'root');
+          define('DB_PASS', '');
+          define('DB_CHARSET_UFT8', 'SET CHARACTER SET utf8');
 
         class Conexion{
 
-            private $conexion;
+            private $conexion = null;
 
             public function conectar(){
                 try {

@@ -27,20 +27,19 @@
             <tbody>
 
                 <?php
-                     require_once("..\php\class\Usuario.php");
                      $user = unserialize(stripslashes($_GET["user"]));
 
-                     echo '<form action="" method="post">'.
+                     echo '<form action="../../class/control/Crud-control.php" method="post">'.
                                  "<tr>".
-                                 '<td>   <input type="number"   name="id"          value="' .$user->getId().       '" placeholder="'.$user->getId().       '">  </td>'.
-                                 '<td>   <input type="text"     name="nombre"      value="' .$user->getNombre().   '" placeholder="'.$user->getNombre().   '">  </td>'.
-                                 '<td>   <input type="text"     name="email"       value="' .$user->getEmail().    '" placeholder="'.$user->getEmail().    '">  </td>'.
-                                 '<td>   <input type="text"     name="password"    value="' .$user->getPassword(). '" placeholder="'.$user->getPassword(). '">  </td>'.
-                                 '<td>   <input type="text"     name="direccion"   value="' .$user->getDireccion().'" placeholder="'.$user->getDireccion().'">  </td>'.
-                                 '<td>   <input type="text"     name="cp"          value="' .$user->getCp().       '" placeholder="'.$user->getCp().       '">  </td>'.
-                                 '<td>   <input type="text"     name="telefono"    value="' .$user->getTelefono(). '" placeholder="'.$user->getTelefono(). '">  </td>'.
-                                 '<td>   <input type="text"     name="dni"         value="' .$user->getDni().      '" placeholder="'.$user->getDni().      '">  </td>'.
-                                        '<input type="hidden"   name="accion"      value="editar">'.
+                                 '<td>   <input type="text"     name="nombre"      value="' .$user["nombre"].   '" placeholder="'.$user["nombre"].   '">  </td>'.
+                                 '<td>   <input type="text"     name="email"       value="' .$user["email"].    '" placeholder="'.$user["email"].    '">  </td>'.
+                                 '<td>   <input type="text"     name="password"    value="' .$user["password"]. '" placeholder="'.$user["password"]. '">  </td>'.
+                                 '<td>   <input type="text"     name="direccion"   value="' .$user["direccion"].'" placeholder="'.$user["direccion"].'">  </td>'.
+                                 '<td>   <input type="text"     name="cp"          value="' .$user["cp"].       '" placeholder="'.$user["cp"].       '">  </td>'.
+                                 '<td>   <input type="text"     name="telefono"    value="' .$user["telefono"]. '" placeholder="'.$user["telefono"]. '">  </td>'.
+                                 '<td>   <input type="text"     name="dni"         value="' .$user["dni"].      '" placeholder="'.$user["dni"].      '">  </td>'.
+                                 '<td>   <input type="text"     name="mesa"        value="' .$user["mesa"].     '" placeholder="'.$user["mesa"].     '">  </td>'.
+                                        '<input type="hidden"   name="accion"      value="listar_despues_editar">'.
                                  "<td>"
                                          .'<input type="submit" value="APLICAR">'.    
                                  "</td>

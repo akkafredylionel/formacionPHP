@@ -47,7 +47,7 @@
         public function setDireccion(String $direccion){$this->direccion = $direccion;}
         public function setCp(String $cp){$this->cp = $cp;}
         public function setTelefono(String $telefono){$this->telefono = $telefono;}
-        public function setdni(String $dni){$this->dni = $dni;}
+        public function setDni(String $dni){$this->dni = $dni;}
         public function setMesa(String $mesa){$this->mesa = $mesa;}
 
         public function toString(){

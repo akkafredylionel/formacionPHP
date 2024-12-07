@@ -1,6 +1,6 @@
 <?php 
 
-    require_once("GestionUsuarioImpl.php");
+    require_once("../GestionUsuarioImpl.php");
 
     class Autenticacion{
     
@@ -10,13 +10,13 @@
             $this->gestionUsuario  = new GestionUsuarioImpl();
         }
 
-        function isAccountExist($account):bool{
+        function autenticar($account):bool{
             $email = $account["email"];
             $password = $account["password"];
             $usuarios = $this->gestionUsuario->obtenerTodo();
             $usuarioExist = false;
             foreach($usuarios as $usuario){
-                if($usuario->getEmail() == $email  && $usuario->getPassword() == $password){
+                if($usuario['email'] == $email  && $usuario['password'] == $password){
                     $usuarioExist = true;
                 }
             }
