@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
                  <td>   <input type="text"     name="cp"        placeholder="cp" >  </td>
                  <td>   <input type="text"     name="telefono"  placeholder="telefono">  </td>
                  <td>   <input type="text"     name="dni"       placeholder="dni">  </td>
-                 <td>   <input type="text"     name="mesa"       placeholder="mesa">  </td>
+                 <td>   <input type="text"     name="mesa"      placeholder="mesa">  </td>
                         <input type="hidden"   name="accion"    value="agregar">   
                  <td>
                        <input type="submit" value="APLICAR">    

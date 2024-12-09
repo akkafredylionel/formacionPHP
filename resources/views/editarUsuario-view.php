@@ -3,54 +3,29 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tabla de Datos</title>
-        <link rel="stylesheet" href="../assets/css/listarUsuarios-view.css">
+        <title>EDITAR USUARIO</title>
+        <link rel="stylesheet" href="../css/agregarUsuarios-view.css">
     </head>
     <body>
+       
+        <form action="../../class/control/Crud-control.php" method="post">
 
-        <table>
-            
-            <thead>
+                <?php $user =  unserialize(stripslashes($_GET["user"]))?> 
                 <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>Contraseña</th>
-                    <th>Dirección</th>
-                    <th>CP</th>
-                    <th>Teléfono</th>
-                    <th>DNI</th>
-                    <th>Acción</th>
+                    <td>   <input type="text"     readonly name="id"   value=<?php echo $user["id"]       ?>  placeholder= <?php  echo $user['id']       ?>  </td>
+                    <td>   <input type="text"     name="nombre"        value=<?php echo $user["nombre"]   ?>  placeholder= <?php  echo $user["nombre"]   ?>  </td>
+                    <td>   <input type="text"     name="email"         value=<?php echo $user["email"]    ?>  placeholder= <?php  echo $user["email"]    ?>  </td>
+                    <td>   <input type="text"     name="password"      value=<?php echo $user["password"] ?>  placeholder= <?php  echo $user["password"] ?>  </td>
+                    <td>   <input type="text"     name="direccion"     value=<?php echo $user["direccion"]?>  placeholder= <?php  echo $user["direccion"]?>  </td>
+                    <td>   <input type="text"     name="cp"            value=<?php echo $user["cp"]       ?>  placeholder= <?php  echo $user["cp"]       ?>  </td>
+                    <td>   <input type="text"     name="telefono"      value=<?php echo $user["telefono"] ?>  placeholder= <?php  echo $user["telefono"] ?>  </td>
+                    <td>   <input type="text"     name="dni"           value=<?php echo $user["dni"]      ?>  placeholder= <?php  echo $user["dni"]      ?>  </td>
+                    <td>   <input type="text"     name="mesa"          value=<?php echo $user["mesa"]     ?>  placeholder= <?php  echo $user["mesa"]     ?>  </td>
+                    <td>   <input type="hidden"   name="accion"        value="listar_despues_editar">                                                        </td>    
+                    <td>   <input type="submit"                        value="APLICAR">                                                                      </td>              
                 </tr>
-            </thead>
 
-            <tbody>
-
-                <?php
-                     $user = unserialize(stripslashes($_GET["user"]));
-
-                     echo '<form action="../../class/control/Crud-control.php" method="post">'.
-                                 "<tr>".
-                                 '<td>   <input type="text"     name="nombre"      value="' .$user["nombre"].   '" placeholder="'.$user["nombre"].   '">  </td>'.
-                                 '<td>   <input type="text"     name="email"       value="' .$user["email"].    '" placeholder="'.$user["email"].    '">  </td>'.
-                                 '<td>   <input type="text"     name="password"    value="' .$user["password"]. '" placeholder="'.$user["password"]. '">  </td>'.
-                                 '<td>   <input type="text"     name="direccion"   value="' .$user["direccion"].'" placeholder="'.$user["direccion"].'">  </td>'.
-                                 '<td>   <input type="text"     name="cp"          value="' .$user["cp"].       '" placeholder="'.$user["cp"].       '">  </td>'.
-                                 '<td>   <input type="text"     name="telefono"    value="' .$user["telefono"]. '" placeholder="'.$user["telefono"]. '">  </td>'.
-                                 '<td>   <input type="text"     name="dni"         value="' .$user["dni"].      '" placeholder="'.$user["dni"].      '">  </td>'.
-                                 '<td>   <input type="text"     name="mesa"        value="' .$user["mesa"].     '" placeholder="'.$user["mesa"].     '">  </td>'.
-                                        '<input type="hidden"   name="accion"      value="listar_despues_editar">'.
-                                 "<td>"
-                                         .'<input type="submit" value="APLICAR">'.    
-                                 "</td>
-                                 </tr>".
-                           "</form>";
-
-                ?>
-
-            </tbody>
-            
-        </table>
-
+        </form>
+        
     </body>
 </html>
